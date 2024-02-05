@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressive Landing Page</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('bg_1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+
+        header {
+            background-color: navy; /* Updated to professional blue color */
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 0.5em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5em 1em;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: green;
+            color: #fff;
+        }
+
+        section {
+            padding: 2em;
+            text-align: center;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hide all sections */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .column {
+            width: 100%; /* Adjusted width for better responsiveness */
+            padding: 1em;
+        }
+
+        footer {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 60px; /* Adjust the width to your preference for all logos */
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+        
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            display: block; /* Ensures labels are on new lines */
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color:olive;
+        }
+    </style>
+</head>
+
+<body>
+    <header text-align:center>
+        <h1>Landing Page</h1>
+            <p>Welcome to our Awesome Landing Page!</p>
+              
+                
+           
+    </header>
+
+    <nav>
+        <a onclick="showSection('login')">Login</a>
+        <a onclick="showSection('signup')">Sign Up</a>
+        <a onclick="showSection('about')">About Us</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </nav>
+    <section id="login" class="container">
+        <div class="column">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </section>
+
+    <section id="signup" class="container">
+        <div class="column">
+            <h2>Sign Up</h2>
+            <form action="#" method="post">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+    
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </section>
+    
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="column">
+            <h2>About Us</h2>
+            <p>Welcome to Our Company, where innovation meets excellence!</p>
+
+            <p>At Our Company, we are dedicated to providing high-quality solutions for our clients. With a team of passionate and skilled professionals, we strive to deliver cutting-edge products and services that meet the ever-evolving needs of our customers.</p>
+
+            <p>Our mission is to empower individuals and businesses through technology, fostering growth and success in the digital era. We believe in collaboration, integrity, and continuous improvement, ensuring that our clients receive the best possible outcomes.</p>
+
+            <p>Whether you're a startup looking to establish your online presence or an established business seeking to enhance your digital strategies, Our Company is here to help. Explore the possibilities with us and embark on a journey towards success!</p>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="column">
+            <h2>Contact</h2>
+            <p>Email: info@example.com</p>
+            <p>Phone: +1 234 567 890</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" onclick="openSocialMedia('https://www.facebook.com')"><img src="C:\Users\AISHWARYA\Downloads\Facebook_logo.jpg" alt="Facebook"></a>
+            <a href="#" onclick="openSocialMedia('https://www.twitter.com')"><img src="C:\Users\AISHWARYA\Downloads\Twitter_logo.png" alt="Twitter"></a>
+            <a href="#" onclick="openSocialMedia('https://www.instagram.com')"><img src="C:\Users\AISHWARYA\Downloads\insta_logo.jpg" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 Landing Page. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            var section = document.getElementById(sectionId);
+            section.style.display = 'block';
+
+            // Hide the welcome section when login is displayed
+            if (sectionId === 'login') {
+                document.getElementById('welcome').style.display = 'none';
+            } else {
+                document.getElementById('welcome').style.display = 'block';
+            }
+        }
+        function openSocialMedia(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+
+</html>
