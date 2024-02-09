@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional To-Do List</title>
+<style>
+    body {
+        font-family: 'Garamond', serif; /* Using a decorative font */
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    nav {
+        background-color: #333;
+        padding: 10px 0;
+        text-align: right; /* Align contents to the right */
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    nav a.logo {
+        margin-right: auto; /* Align to leftmost */
+        margin-left: 10px; /* Add margin to separate from other links */
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"], select, input[type="date"], input[type="submit"], input[type="checkbox"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    select#taskPriority {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin: 5px;
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .task {
+        border-radius: 4px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .task label {
+        font-weight: bold;
+    }
+    .priority-high {
+        color: red;
+    }
+    .priority-medium {
+        color: orange;
+    }
+    .priority-low {
+        color: green;
+    }
+    .progress-bar {
+        height: 20px;
+        background-color: #ddd;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+    .progress {
+        height: 100%;
+        background-color: #007bff;
+        border-radius: 4px;
+    }
+    .background-image {
+        background-image: url('https://source.unsplash.com/random/800x600');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+</style>
+</head>
+<body>
+<div class="background-image"></div>
+<div class="container">
+    <nav>
+        <a href="#" class="logo">To-Do List</a>
+        <a href="#">Home</a>
+        <a href="#">Contacts</a>
+        <a href="#">Sign In</a>
+    </nav>
+    <h1>To-Do List</h1>
+    <form id="taskForm">
+        <input type="text" id="taskTitle" placeholder="Task Title" required>
+        <input type="date" id="taskDeadline" required>
+        <select id="taskPriority" required>
+            <option value="" disabled selected>Priority</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <input type="text" id="taskLabels" placeholder="Labels (comma-separated)">
+        <input type="submit" value="Add Task">
+    </form>
+    <div id="taskList"></div>
+</div>
+
+<script>
+    document.getElementById('taskForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        var title = document.getElementById('taskTitle').value;
+        var deadline = document.getElementById('taskDeadline').value;
+        var priority = document.getElementById('taskPriority').value;
+        var labels = document.getElementById('taskLabels').value.split(',');
+        
+        // Create task element
+        var taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+        
+        // Create task details
+        var taskDetails = document.createElement('p');
+        taskDetails.innerHTML = '<label>Title:</label> ' + title + '<br>' +
+                                '<label>Deadline:</label> ' + deadline + '<br>' +
+                                '<label>Priority:</label> ' + priority + '<br>' +
+                                '<label>Labels:</label> ' + labels.join(', ');
+        taskElement.appendChild(taskDetails);
+        
+        // Create checkbox for task
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'checkbox' + document.querySelectorAll('.task').length; // Unique ID for each checkbox
+        var checkboxLabel = document.createElement('label');
+        checkboxLabel.htmlFor = checkbox.id;
+        checkboxLabel.innerText = 'Complete';
+        taskElement.appendChild(checkbox);
+        taskElement.appendChild(checkboxLabel);
+        
+        // Create progress bar
+        var progressBar = document.createElement('div');
+        progressBar.classList.add('progress-bar');
+        taskElement.appendChild(progressBar);
+        
+        // Add task to task list
+        document.getElementById('taskList').appendChild(taskElement);
+    });
+</script>
+
+</body>
+</html>
